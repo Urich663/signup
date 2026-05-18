@@ -1,0 +1,161 @@
+/* --- 1. FONTS & THEME VARIABLES --- */
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Rethink+Sans:ital,wght@0,400..800;1,400..800&display=swap');
+
+:root {
+    /* Soft Light Pastel Canvas with a hint of rose/cream wash */
+    --bg-gradient: linear-gradient(135deg, #fff1f2 0%, #f8fafc 50%, #f3f4f6 100%);
+    
+    /* Subtle Wine Accents */
+    --wine-primary: #9f1239;
+    --wine-accent: linear-gradient(135deg, #9f1239 0%, #be123c 100%);
+    --wine-light: rgba(159, 18, 57, 0.04);
+    
+    /* Light Glass-morphism (Frosted White Look) */
+    --glass-card: rgba(255, 255, 255, 0.45);
+    --glass-border: rgba(255, 255, 255, 0.6);
+    --glass-blur: blur(25px);
+
+    /* Pillowy Curves & Soft Floating Shadows */
+    --panel-radius: 24px; 
+    --item-radius: 14px;
+    --float-shadow: 0 20px 40px rgba(15, 23, 42, 0.06), 
+                    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+
+    /* Typography Colors */
+    --text-pure: #0f172a;      /* Deep Charcoal */
+    --text-muted: #64748b;     /* Cool Gray */
+}
+
+/* --- 2. GLOBAL RESET & BASE --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Geist', sans-serif;
+    background: var(--bg-gradient);
+    color: var(--text-pure);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+/* --- 3. FORM CONTAINER CARD --- */
+#signupForm {
+    background: var(--glass-card);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--panel-radius);
+    box-shadow: var(--float-shadow);
+    width: 100%;
+    max-width: 540px;
+    padding: 40px;
+}
+
+/* Header Text Alignments (If wrapped inside the form layout) */
+h2 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 6px;
+    color: var(--text-pure);
+}
+
+
+/* --- 4. FORM ROW & FIELD WRAPPERS --- */
+form div {
+    margin-bottom: 20px;
+}
+
+label {
+    display: inline-block;
+    font-family: 'Rethink Sans', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text-pure);
+    margin-bottom: 8px;
+}
+
+/* Transparent Glass Inputs & Select Dropdown */
+select, 
+input[type="text"], 
+input[type="email"], 
+input[type="tel"], 
+input[type="password"] {
+    width: 100%;
+    padding: 14px 20px;
+    border-radius: var(--item-radius);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    background: rgba(255, 255, 255, 0.65);
+    font-family: 'Rethink Sans', sans-serif;
+    font-size: 0.95rem;
+    color: var(--text-pure);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+select:focus, 
+input:focus {
+    outline: none;
+    background: #ffffff;
+    border-color: rgba(159, 18, 57, 0.3);
+    box-shadow: 0 0 20px rgba(159, 18, 57, 0.08);
+}
+
+/* --- 5. CONDITIONAL FIELDSETS --- */
+fieldset {
+    border: 1px dashed rgba(159, 18, 57, 0.25);
+    background: var(--wine-light);
+    border-radius: var(--item-radius);
+    padding: 25px;
+    margin: 25px 0;
+}
+
+legend {
+    font-family: 'Geist', sans-serif;
+    font-weight: 800;
+    font-size: 0.85rem;
+    color: var(--wine-primary);
+    padding: 0 12px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+fieldset p {
+    margin-bottom: 16px;
+}
+
+fieldset p:last-child {
+    margin-bottom: 0;
+}
+
+/* --- 6. ACTION BUTTON --- */
+button[type="submit"] {
+    width: 100%;
+    padding: 16px;
+    background: var(--wine-accent);
+    color: #ffffff;
+    border: none;
+    border-radius: var(--item-radius);
+    font-family: 'Geist', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(159, 18, 57, 0.15);
+    transition: all 0.25s ease;
+}
+
+button[type="submit"]:hover {
+    background: #be123c;
+    box-shadow: 0 12px 28px rgba(159, 18, 57, 0.25);
+    transform: translateY(-1px);
+}
+
+button[type="submit"]:active {
+    transform: translateY(1px);
+}

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>School Signup</title>
+  <link rel="stylesheet" href="signup.css">
+</head>
+<body>
+
+  <form id="signupForm">
+    <h2>Create Account</h2>
+    <p style="font-family: 'Rethink Sans', sans-serif; color: var(--text-muted); font-size: 0.95rem; font-weight: 600; margin-bottom: 30px; margin-top: 4px;">School Management System Gateway</p>
+
+    <div>
+      <label for="role">Select Your System Role</label>
+      <select id="role" name="role" required>
+        <option value="">-- Choose Role --</option>
+        <option value="admin">Admin</option>
+        <option value="teacher">Teacher</option>
+        <option value="student">Student</option>
+        <option value="parent">Parent / Guardian</option>
+      </select>
+    </div>
+
+    <div>
+      <label>Full Name</label>
+      <input type="text" name="fullname" required>
+    </div>
+
+    <div>
+      <label>Email Address</label>
+      <input type="email" name="email" required>
+    </div>
+
+    <div>
+      <label>Phone Number</label>
+      <input type="tel" name="phone" required>
+    </div>
+
+    <div>
+      <label>Password</label>
+      <input type="password" name="password" required>
+    </div>
+
+    <div>
+      <label>Confirm Password</label>
+      <input type="password" name="confirm_password" required>
+    </div>
+
+    <fieldset id="fields-admin" style="display: none;">
+      <legend>Admin Verification</legend>
+      <p>
+        <label>School Name</label>
+        <input type="text" name="school_name">
+      </p>
+      <p>
+        <label>School ID Reference</label>
+        <input type="text" name="school_id">
+      </p>
+    </fieldset>
+
+    <fieldset id="fields-teacher" style="display: none;">
+      <legend>Teacher Profile</legend>
+      <p>
+        <label>Employee Identification ID</label>
+        <input type="text" name="employee_id">
+      </p>
+      <p>
+        <label>Core Subject(s)</label>
+        <input type="text" name="subjects">
+      </p>
+      <p>
+        <label>Assigned Department</label>
+        <input type="text" name="department">
+      </p>
+    </fieldset>
+
+    <fieldset id="fields-student" style="display: none;">
+      <legend>Student Registration</legend>
+      <p>
+        <label>Student System ID</label>
+        <input type="text" name="student_id">
+      </p>
+      <p>
+        <label>Class / Current Grade</label>
+        <input type="text" name="class">
+      </p>
+      <p>
+        <label>Admission Tracking Number</label>
+        <input type="text" name="admission_number">
+      </p>
+    </fieldset>
+
+    <fieldset id="fields-parent" style="display: none;">
+      <legend>Parent / Guardian Link</legend>
+      <p>
+        <label>Relationship Status to Ward</label>
+        <input type="text" name="relationship">
+      </p>
+      <p>
+        <label>Linked Student System ID</label>
+        <input type="text" name="linked_student_id">
+      </p>
+    </fieldset>
+
+    <button type="submit">Create System Account</button>
+
+  </form>
+
+  <script>
+    document.getElementById('role').addEventListener('change', function() {
+      // Hide all fieldsets first
+      document.querySelectorAll('fieldset').forEach(el => {
+        el.style.display = 'none';
+      });
+
+      // Show the selected one
+      const selectedRole = this.value;
+      if (selectedRole) {
+        const targetFieldset = document.getElementById(`fields-${selectedRole}`);
+        if (targetFieldset) {
+          targetFieldset.style.display = 'block';
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>
